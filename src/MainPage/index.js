@@ -6,8 +6,10 @@ import {
     Platform,
     StyleSheet,
     Text,
-    View
+    View,
+    TouchableOpacity
 } from 'react-native';
+import {Actions} from 'react-native-router-flux';
 
 const instructions = Platform.select({
     ios: 'Press Cmd+R to reload,\n' +
@@ -17,6 +19,9 @@ const instructions = Platform.select({
 });
 
 export default class App extends Component {
+    goToPageTwo(){
+        Actions.HomeThree()
+    }
     render() {
         return (
             <View style={styles.container}>
@@ -29,6 +34,9 @@ export default class App extends Component {
                 <Text style={styles.instructions}>
                     {instructions}
                 </Text>
+                <TouchableOpacity style={{ margin: 10 }} onPress={this.goToPageTwo}>
+                    <Text>Page Three</Text>
+                </TouchableOpacity>
             </View>
         );
     }
